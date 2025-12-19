@@ -1,0 +1,14 @@
+[project]
+name = "fastapi-mcp-server"
+version = "0.1.0"
+description = "A hello world FastAPI MCP server exposing tools via SSE transport"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+serve = "server:main"
