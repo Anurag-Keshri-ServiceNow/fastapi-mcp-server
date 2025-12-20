@@ -57,7 +57,7 @@ def get_greeting(name: str) -> str:
 
 
 # Mount the MCP server to the FastAPI app using SSE transport
-app.mount("/mcp", mcp.sse_app())
+app.mount("/mcp", mcp.sse_app(host="0.0.0.0"))
 
 
 @app.get("/")
