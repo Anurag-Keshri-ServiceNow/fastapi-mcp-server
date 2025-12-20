@@ -17,8 +17,8 @@ mcp = FastMCP(
     transport_security=TransportSecuritySettings(
         enable_dns_rebinding_protection=True,
         # Add your specific gateway or domain here
-        allowed_hosts=["localhost:*", "127.0.0.1:*", "fastapi-mcp-server-tp0z.onrender.com:*"],
-        allowed_origins=["http://localhost:*", "https://fastapi-mcp-server-tp0z.onrender.com:*"],
+        allowed_hosts=["localhost:*", "127.0.0.1:*", "fastapi-mcp-server-tp0z.onrender.com"],
+        allowed_origins=["http://localhost:*", "https://fastapi-mcp-server-tp0z.onrender.com"],
     )
 )
 
