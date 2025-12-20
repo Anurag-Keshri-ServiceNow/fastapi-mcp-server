@@ -2,6 +2,7 @@ import logging
 
 from fastapi import FastAPI, Request
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 # Configure logging
 logging.basicConfig(
@@ -11,7 +12,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Create the MCP server
-mcp = FastMCP("Hello World Server")
+mcp = FastMCP(
+    "Hello World Server",
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        # Add your specific gateway or domain here
+        allowed_hosts=["localhost:*", "127.0.0.1:*", "fastapi-mcp-server-tp0z.onrender.com:*"],
+        allowed_origins=["http://localhost:*", "https://fastapi-mcp-server-tp0z.onrender.com:*"],
+    )
+)
 
 # Create FastAPI app
 app = FastAPI(title="Hello World MCP Server")
